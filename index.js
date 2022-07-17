@@ -8,7 +8,6 @@ const background = new Image();
 background.src = "images/lair.png";
 
 function game() {
-  checkGameOver();
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 }
 
