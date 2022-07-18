@@ -3,9 +3,9 @@ import MovingDirection from "./MovingDirection.js";
 
 export class EnemyController {
   enemyMap = [
-    [2, 2, 2, 2, 2, 2, 2],
-    [2, 2, 2, 2, 2, 2, 2],
     [2, 2, 2, 1, 2, 2, 2],
+    [2, 2, 2, 2, 2, 2, 2],
+    [2, 2, 2, 2, 2, 2, 2],
   ];
   enemyRows = [];
 
