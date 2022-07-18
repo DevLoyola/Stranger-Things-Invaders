@@ -1,6 +1,7 @@
 export class Player {
   rightPressed = false;
   leftPressed = false;
+  shootPressed = false;
   constructor(canvas, velocity) {
     this.canvas = canvas;
     this.velocity = velocity;
@@ -17,8 +18,24 @@ export class Player {
   }
 
   draw(ctx) {
+    if (this.shootPressed) {
+      console.log("PAPA");
+    }
     this.move();
+    this.collideWithWalls();
     ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+  }
+
+  collideWithWalls() {
+    //left
+    if (this.x < 0) {
+      this.x = 0;
+    }
+
+    //right
+    if (this.x > this.canvas.width - this.width) {
+      this.x = this.canvas.width - this.width;
+    }
   }
 
   move() {
@@ -36,6 +53,9 @@ export class Player {
     if (event.code == "ArrowLeft") {
       this.leftPressed = true;
     }
+    if (event.code == "Space") {
+      this.shootPressed = true;
+    }
   };
 
   keyup = (event) => {
@@ -44,6 +64,9 @@ export class Player {
     }
     if (event.code == "ArrowLeft") {
       this.leftPressed = false;
+    }
+    if (event.code == "Space") {
+      this.shootPressed = false;
     }
   };
 }
