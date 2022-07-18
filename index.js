@@ -12,9 +12,13 @@ const background = new Image();
 background.src = "images/lair.png";
 
 const playerBulletController = new bulletController(canvas, 10, "white", true);
-const enemyBulletController = new BulletController(canvas, 4, "red", false);
+const enemyBulletController = new bulletController(canvas, 4, "red", false);
 
-const enemyController = new EnemyController(canvas);
+const enemyController = new EnemyController(
+  canvas,
+  enemyBulletController,
+  playerBulletController
+);
 const player = new Player(canvas, 3, playerBulletController);
 
 function game() {
@@ -22,6 +26,7 @@ function game() {
   enemyController.draw(ctx);
   player.draw(ctx);
   playerBulletController.draw(ctx);
+  enemyBulletController.draw(ctx);
 }
 
 setInterval(game, 1000 / 60);
