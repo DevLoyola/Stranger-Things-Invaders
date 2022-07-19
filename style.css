@@ -3,7 +3,6 @@ canvas {
 }
 h1 {
   margin: 0px;
-  margin-top: 2rem;
   margin-bottom: 4rem;
   font-size: 2.9em;
   font-family: "Helvetica";
@@ -20,4 +19,16 @@ body {
 }
 audio {
   display: none;
+}
+
+button {
+  margin-top: 3rem;
+  background-color: red;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  max-width: fit-content;
+  box-shadow: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
