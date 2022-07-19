@@ -23,14 +23,31 @@ export class EnemyController {
     this.canvas = canvas;
     this.enemyBulletController = enemyBulletController;
     this.PlayerBulletController = PlayerBulletController;
+    this.enemyDeathSound = new Audio("sounds/demo-death.wav");
+    this.enemyDeathSound.volume = 0.5;
     this.createEnemies();
   }
   draw(ctx) {
     this.decrementMoveDownTimer();
     this.updateVelocityAndDirection();
+    this.collisionDetection();
     this.drawEnemies(ctx);
     this.resetMoveDownTimer();
     this.fireBullet();
+  }
+
+  collisionDetection() {
+    this.enemyRows.forEach((enemyRow) => {
+      enemyRow.forEach((enemy, enemyIndex) => {
+        if (this.PlayerBulletController.collideWith(enemy)) {
+          this.enemyDeathSound.currentTime = 0;
+          this.enemyDeathSound.play();
+          enemyRow.splice(enemyIndex, 1);
+        }
+      });
+    });
+
+    this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
   }
 
   fireBullet() {
