@@ -1,3 +1,3 @@
 # Stranger-Things-Invaders
 
-![My Image](images/logoST.png)
+![My Image](images/cover.png)
