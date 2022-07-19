@@ -1,3 +1,6 @@
 # Stranger-Things-Invaders
 
-![My Image](images/cover.png)
+[Try the game here](https://strangerthings-invaders.netlify.app/)
+
+# Created with tutorial by codingWith-Adam
+
